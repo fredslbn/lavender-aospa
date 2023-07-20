@@ -17,7 +17,7 @@ DEVICE=lavender
 #VERSION=
 
 # Kernel Defconfig
-DEFCONFIG=${DEVICE}-perf-_defconfig
+DEFCONFIG=${DEVICE}-perf_defconfig
 
 # Select LTO variant ( Full LTO by default )
 DISABLE_LTO=0
