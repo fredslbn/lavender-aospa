@@ -6,11 +6,12 @@ jobs:
    steps:
       - run:
           command: |
-           git config --global user.name "ImSpiDy"
-           git config --global user.email "SpiDy2713@gmail.com"
-           git config --global color.ui false
-           git clone --depth=1 https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} -b ${CIRCLE_BRANCH} .
-           bash build.sh
+            apt update && apt upgrade -y
+            apt install -f -y git
+            ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && date
+            git clone --depth=1 https://github.com/fredslbn/lavender-aospa.git -b main builder_kernel
+            cd builder_kernel
+            bash .circleci/lavender.sh
 workflows:
   version: 2.1
   cooking:
