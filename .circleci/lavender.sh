@@ -52,7 +52,7 @@ COMPILER=nexus14
 
 ##----------------------------------------------------------##
 # Specify Linker
-LINKER=ld
+LINKER=ld.lld
 
 ##----------------------------------------------------------##
 
@@ -236,16 +236,16 @@ START=$(date +"%s")
 	       CC=clang \
 	       CROSS_COMPILE=aarch64-linux-gnu- \
 	       CROSS_COMPILE_COMPAT=arm-linux-gnueabi- \
-	       #LD=${LINKER} \
-	       LLVM=1 \
-	       LLVM_IAS=1 \
+	       LD=${LINKER} \
+	       #LLVM=1 \
+	       #LLVM_IAS=1 \
 	       AR=llvm-ar \
 	       NM=llvm-nm \
 	       OBJCOPY=llvm-objcopy \
 	       OBJDUMP=llvm-objdump \
 	       STRIP=llvm-strip \
-	       READELF=llvm-readelf \
-	       OBJSIZE=llvm-size \
+	       #READELF=llvm-readelf \
+	       #OBJSIZE=llvm-size \
 	       V=$VERBOSE 2>&1 | tee error.log
 	       
 	elif [ -d ${KERNEL_DIR}/cosmic ];
