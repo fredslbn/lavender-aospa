@@ -236,7 +236,7 @@ START=$(date +"%s")
 	       CC=clang \
 	       CROSS_COMPILE=aarch64-linux-gnu- \
 	       CROSS_COMPILE_COMPAT=arm-linux-gnueabi- \
-	       LD=${LINKER} \
+	       #LD=${LINKER} \
 	       #LLVM=1 \
 	       #LLVM_IAS=1 \
 	       AR=llvm-ar \
@@ -354,7 +354,7 @@ START=$(date +"%s")
 	       
 	fi
 	
-	echo "**** Verify Image.gz-dtb & dtbo.img ****"
+	echo "**** Verify Image.gz-dtb ****"
     ls $(pwd)/out/arch/arm64/boot/Image.gz-dtb
     #ls $(pwd)/out/arch/arm64/boot/dtbo.img
     
